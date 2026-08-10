@@ -1,24 +1,25 @@
 {
-  "name": "expensetracker",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Nurgazi1/expense-tracker.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/Nurgazi1/expense-tracker/issues"
-  },
-  "homepage": "https://github.com/Nurgazi1/expense-tracker#readme",
-  "dependencies": {
-    "hono": "^4.13.1"
-  }
+    "name": "expensetracker",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Nurgazi1/expense-tracker.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "type": "module",
+    "bugs": {
+        "url": "https://github.com/Nurgazi1/expense-tracker/issues"
+    },
+    "homepage": "https://github.com/Nurgazi1/expense-tracker#readme",
+    "dependencies": {
+        "hono": "^4.13.1",
+        "@hono/node-server": "^1.19.0"
+    }
 }
