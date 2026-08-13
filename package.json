@@ -4,6 +4,7 @@
     "description": "",
     "main": "index.js",
     "scripts": {
+        "prettier": "prettier",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "repository": {
@@ -19,7 +20,11 @@
     },
     "homepage": "https://github.com/Nurgazi1/expense-tracker#readme",
     "dependencies": {
+        "@hono/node-server": "^1.19.0",
         "hono": "^4.13.1",
-        "@hono/node-server": "^1.19.0"
+        "zod": "^4.4.3"
+    },
+    "devDependencies": {
+        "prettier": "^3.9.6"
     }
 }
