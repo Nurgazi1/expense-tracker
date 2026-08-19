@@ -61,23 +61,23 @@ app.get("/expenses/:id", (c) => {
 });
 
 app.post("/expenses", async (c) => {
-  const body = await c.req.json();
+  try {
+    const body = await c.req.json();
 
-  const result = expenseSchema.safeParse(body);
+    const data = expenseSchema.parse(body);
 
-  if (!result.success) {
-    return c.json({ error: result.error.issues }, 400);
+    const expense = {
+      id: crypto.randomUUID(),
+      ...data,
+      date: new Date().toISOString().split("T")[0],
+    };
+
+    expenses.push(expense);
+
+    return c.json(expense);
+  } catch (error) {
+    return c.json({ error: "Invalid expense data" }, 400);
   }
-
-  const expense = {
-    id: crypto.randomUUID(),
-    ...result.data,
-    date: new Date().toISOString().split("T")[0],
-  };
-
-  expenses.push(expense);
-
-  return c.json(expense);
 });
 
 app.delete("/expenses/:id", (c) => {
@@ -96,7 +96,6 @@ app.delete("/expenses/:id", (c) => {
 
 app.patch("/expenses/:id", async (c) => {
   const id = c.req.param("id");
-  const body = await c.req.json();
 
   const expense = expenses.find((expense) => expense.id === id);
 
@@ -104,15 +103,17 @@ app.patch("/expenses/:id", async (c) => {
     return c.json({ error: "Expense not found" }, 404);
   }
 
-  const result = updateExpenseSchema.safeParse(body);
+  try {
+    const body = await c.req.json();
 
-  if (!result.success) {
-    return c.json({ error: result.error.issues }, 400);
+    const data = updateExpenseSchema.parse(body);
+
+    Object.assign(expense, data);
+
+    return c.json(expense);
+  } catch (error) {
+    return c.json({ error: "Invalid expense data" }, 400);
   }
-
-  Object.assign(expense, result.data);
-
-  return c.json(expense);
 });
 
 serve(app);
