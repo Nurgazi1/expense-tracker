@@ -21,10 +21,17 @@
     "homepage": "https://github.com/Nurgazi1/expense-tracker#readme",
     "dependencies": {
         "@hono/node-server": "^1.19.0",
+        "dotenv": "^17.4.2",
+        "drizzle-orm": "^1.0.0-rc.4",
         "hono": "^4.13.1",
+        "pg": "^8.23.0",
         "zod": "^4.4.3"
     },
     "devDependencies": {
-        "prettier": "^3.9.6"
+        "@types/node": "^26.4.1",
+        "@types/pg": "^8.23.1",
+        "drizzle-kit": "^1.0.0-rc.4",
+        "prettier": "^3.9.6",
+        "tsx": "^4.23.13"
     }
 }
